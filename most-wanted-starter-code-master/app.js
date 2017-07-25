@@ -6,11 +6,11 @@ Build all of your functions for displaying and gathering information below (GUI)
 function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
-    case 'yes':
-    // TODO: search by name
+    case 'yes':{
+      searchByName(people);
     break;
     case 'no':
-     
+    // TODO: search by traits
     break;
     default:
     app(people); // restart app
@@ -51,10 +51,24 @@ function mainMenu(person, people){
 }
 
 function searchByName(people){
- var firstName = promptFor("What is the person's first name?", chars);
- var lastName = promptFor("What is the person's last name?", chars);
- firstName = data.data.length.firstName;
- lastName = data.data.length.lastName;
+  var firstName = promptFor("What is the person's first name?", chars);
+  var lastName = promptFor("What is the person's last name?", chars);
+  firstName = data.data.length.firstName;
+  lastName = data.[data.length].lastName;
+}
+function searchByTrait(people){
+  var gender = promptFor("What is the person's gender?", chars);
+  var dob =  promptFor("what is the person's dob?"), chars;
+  var height =  promptFor("what is the person's height?"), chars;
+  var weight =  promptFor("what is the person's weight?"), chars;
+  var eyeColor =  promptFor("what is the person's eyeColor?"), chars;
+  var occupation =  promptFor("what is the person's occupation?"), chars;
+  gender = data.data.lenght.gender;
+  dob = data.data.lenght.dob;
+  height  = data.data.lenght.height;
+  weight = data.data.lenght.weight;
+  eyeColor = data.data.lenght.eyeColor;
+  occupation = data.data.lenght.occupation;
 }
 
 // alerts a list of people
@@ -67,17 +81,9 @@ function displayPeople(people){
 function displayPerson(person){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  var personInfo = "first Name: " + person.firstName + "\n";
+  var personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  personInfo += "gender:" + persons.gender + "\n";
-  personInfo += "height:" + person.height + "\n";
-  personInfo += "eyeColor:" + person.eyeColor + "\n";
-  personInfo += "weight:" + person.weight + "\n";
-  personInfo += "occupation:" + person.occupation + "\n";
-  personInfo += "dob:" + person.dob + "\n";
-  personInfo += "id:" + person.id + "\n";
-  personInfo += "parents:" + person.parents + "\n";
-  personInfo += "curentSpouse:" + person.curentSpouse + "\n";
+  // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
 
