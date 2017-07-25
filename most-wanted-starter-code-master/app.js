@@ -10,7 +10,7 @@ function app(people){
     // TODO: search by name
     break;
     case 'no':
-    // TODO: search by traits
+     
     break;
     default:
     app(people); // restart app
@@ -51,11 +51,10 @@ function mainMenu(person, people){
 }
 
 function searchByName(people){
-  var firstName = promptFor("What is the person's first name?", chars);
-  var lastName = promptFor("What is the person's last name?", chars);
-
-  // TODO: find the person using the name they entered
-
+ var firstName = promptFor("What is the person's first name?", chars);
+ var lastName = promptFor("What is the person's last name?", chars);
+ firstName = data.data.length.firstName;
+ lastName = data.data.length.lastName;
 }
 
 // alerts a list of people
@@ -68,9 +67,17 @@ function displayPeople(people){
 function displayPerson(person){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  var personInfo = "First Name: " + person.firstName + "\n";
+  var personInfo = "first Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
+  personInfo += "gender:" + persons.gender + "\n";
+  personInfo += "height:" + person.height + "\n";
+  personInfo += "eyeColor:" + person.eyeColor + "\n";
+  personInfo += "weight:" + person.weight + "\n";
+  personInfo += "occupation:" + person.occupation + "\n";
+  personInfo += "dob:" + person.dob + "\n";
+  personInfo += "id:" + person.id + "\n";
+  personInfo += "parents:" + person.parents + "\n";
+  personInfo += "curentSpouse:" + person.curentSpouse + "\n";
   alert(personInfo);
 }
 
