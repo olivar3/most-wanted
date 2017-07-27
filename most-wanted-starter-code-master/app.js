@@ -7,16 +7,14 @@ function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
     case 'yes':
-      searchByName(people);
+    var person = searchByName(people);
+    mainMenu(person, people);
     break;
-
     case 'no':
-      searchByTrait(people);
-    
-    break;
+    // TODO: search by traits
+    {break;}
+    default:"Search again"
     app(people); // restart app
-    break;
-
   }
 }
 
@@ -34,35 +32,50 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
+    var info = displayPerson(person);
+    if (info === true);{
+      displayPerson(person);
+    }
     // TODO: get person's info
     break;
     case "family":
-    // TODO: get person's family
+    if (family === true){
+      displayFamily(people);
+    }
     break;
     case "descendants":
+     
+      displayDescendants(people,person);
     // TODO: get person's descendants
     break;
     case "restart":
     app(people); // restart
     break;
     case "quit":
-    return; // stop execution
-    default: "Go back to Main Menu"
+    if(quit === true){
+      app(people);
+    }
+    return true; // stop execution
+    default:
     return mainMenu(person, people); // ask again
   }
 }
 
 function searchByName(people){
- var firstName = promptFor("What is the person's first name?", chars);
- var lastName = promptFor("What is the person's last name?", chars);
+var firstName = promptFor("What is the person's first name?", chars);
+var lastName = promptFor("What is the person's last name?", chars);
 for(var i = 0; i < people.length; i++){
-  if(firstName === people[i].firstName && lastName === people.[i].lastName){
-    displayPerson(people[i])
+ if(firstName === people[i].firstName && lastName === people[i].lastName)
+   return people[i]
+ 
+ else if(firstName !== people[i].firstName && lastName !== people[i].lastName)
+   people[i]++;
+ else{
+  alert("could not find individual")
+  app(people)
+   break;
+    }
   }
-   else{
-
-    alert("could not find individual")
-   }
 }
 //This may continue to loop over and over and will not have and end, could be bronken witb a break.
  // firstName = data.data.length.firstName;  
@@ -70,32 +83,8 @@ for(var i = 0; i < people.length; i++){
 
  //iterate over people array of objects and look where firstname === people[2].firstname
  //if there's a match, then return that person
-}
-function searchByTrait(people){
-var gender = promptFor("What is the person's gender?", chars);
-var dob =  promptFor("what is the person's dob?"), chars;
-var height =  promptFor("what is the person's height?"), chars;
-var weight =  promptFor("what is the person's weight?"), chars;
-var eyeColor =  promptFor("what is the person's eyeColor?"), chars;
-var occupation =  promptFor("what is the person's occupation?"), chars;
-gender.map(function gender{[people.length]
-  return gender;
-  });
-dob.map(function dob{[people.length]
-  return dob;
-  });
-height.map(function height{[people.length]
-  return height;
-  });
-weight.map(function weight{[people.length]}
-  return weight;
-  });
-eyeColor.map(function eyeColor{[people.length]
- return eyeColor;
- });
-occupation.map(function occupation{[people.length]
-  return occupation;
- });
+
+
 
 // alerts a list of people
 function displayPeople(people){
@@ -104,12 +93,13 @@ function displayPeople(people){
   }).join("\n"));
 }
 
+
 function displayPerson(person){
  // print all of the information about a person:
  // height, weight, age, name, occupation, eye color.
  var personInfo = "first Name: " + person.firstName + "\n";
  personInfo += "Last Name: " + person.lastName + "\n";
- personInfo += "gender:" + persons.gender + "\n";
+ personInfo += "gender:" + person.gender + "\n";
  personInfo += "height:" + person.height + "\n";
  personInfo += "eyeColor:" + person.eyeColor + "\n";
  personInfo += "weight:" + person.weight + "\n";
@@ -121,6 +111,33 @@ function displayPerson(person){
  alert(personInfo);
 }
 
+function findDescendants(person, people){
+  people.map(function(){
+    if (person.id === element.parents){
+      return descendants
+    }
+  });
+}
+function displayDescendants(people, person){
+  for(var i = 0; i < people.length; i++){
+   
+    if (person.id === people[i].parents){
+      people[i].push(descendantsBlood);
+      people[i]++
+       var descendantsBlood=[];
+     return true;
+   }
+    else if(person.id !== people[i].parents){
+      people[i]++;
+    
+    return true;
+    } 
+    else{
+      return false;
+      alert("No Descendants Found!");
+    }
+  }
+}
 // function that prompts and validates user input
 function promptFor(question, valid){
   do{
